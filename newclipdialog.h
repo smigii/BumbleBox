@@ -31,12 +31,19 @@ class NewClipDialog : public QDialog
 
         void on_pushButton_SkipEnd_clicked();
 
+        void on_positionChanged(qint64 pos);
+
+        void on_durationChanged(qint64 pos);
+
     private:
         Ui::NewClipDialog *ui;
 
         std::unique_ptr<QFile> file;
 
         std::unique_ptr<QMediaPlayer> player;
+
+        bool playing;
+        bool nodeTimeChecked;
 
     };
 
